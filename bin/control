@@ -29,6 +29,8 @@ function build() {
     #mkdir -p $OPENSHIFT_DATA_DIR/usr/local/
     #./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
     #./b2 install
+    cd $OPENSHIFT_REPO_DIR
+
     $OPENSHIFT_D_DIR/usr/dub --compiler=ldc
     popd
     client_message "Building $cartride_type cart"
