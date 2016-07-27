@@ -30,11 +30,14 @@ function build() {
     #./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
     #./b2 install
     export ldc=$OPENSHIFT_D_DIR/usr/bin/ldc2
+    #pushd $ldc
     export dub=$OPENSHIFT_D_DIR/usr/bin/dub
+    pushd $dub
     client_message "agregando ldc y dub al path"
     cd $OPENSHIFT_REPO_DIR
 
-    dub --compiler=ldc2
+    dub --compiler=ldc
+
     popd
     client_message "Building $cartride_type cart"
     #pushd ${OPENSHIFT_REPO_DIR}
