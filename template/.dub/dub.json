@@ -1,0 +1,12 @@
+{
+	"dub": {
+		"lastUpgrade": "2016-07-26T23:04:24.8740246",
+		"cachedUpgrades": {
+			"memutils": "0.4.6",
+			"libevent": "2.0.1+2.0.16",
+			"vibe-d": "0.7.29",
+			"openssl": "1.1.4+1.0.1g",
+			"libasync": "0.7.9"
+		}
+	}
+}
