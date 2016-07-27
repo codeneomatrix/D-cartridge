@@ -29,6 +29,9 @@ function build() {
     #mkdir -p $OPENSHIFT_DATA_DIR/usr/local/
     #./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
     #./b2 install
+    export ldc=$OPENSHIFT_D_DIR/usr/bin/ldc2
+    export dub=$OPENSHIFT_D_DIR/usr/bin/dub
+    client_message "agregando ldc y dub al path"
     cd $OPENSHIFT_REPO_DIR
 
     dub --compiler=ldc2
