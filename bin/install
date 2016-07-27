@@ -13,6 +13,9 @@ echo "eliminado los archivos temporales"
 
 echo "$PATH"
 echo "`ls`"
+
+cd $OPENSHIFT_D_DIR/usr/bin
+echo "`ls`"
 client_message
 #cd $OPENSHIFT_D_DIR
 #mkdir -p .julia/v0.4.6
