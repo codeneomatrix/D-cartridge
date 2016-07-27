@@ -31,13 +31,15 @@ function build() {
     rm -rf ldc2-1.0.0-linux-x86_64
     rm -f ldc2-1.0.0-linux-x86_64.tar.gz
     echo "eliminado los archivos temporales"
+    ln -s $OPENSHIFT_D_DIR/usr/bin/dub $OPENSHIFT_REPO_DIR
+    ln -s $OPENSHIFT_D_DIR/usr/bin/ldc2 $OPENSHIFT_REPO_DIR
 
     cd $OPENSHIFT_REPO_DIR
     client_message "cambiando directorio"
     echo "$PATH"
     echo "`ls`"
 
-    dub --compiler=ldc
+    dub -v --compiler=ldc2
 
     #popd
     client_message "Building $cartride_type cart"
