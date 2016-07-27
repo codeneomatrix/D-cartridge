@@ -30,6 +30,7 @@ function build() {
     #./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
     #./b2 install
     cd $OPENSHIFT_REPO_DIR
+    cd OPENSHIFT_APP_NAME
 
     dub --compiler=ldc
     popd
@@ -44,8 +45,8 @@ function deploy() {
 
 function start() {
   client_message "Starting $cartridge_type cart"
-  client_message `date` >> ${OPENSHIFT_DATA_DIR}test.log
-  client_message "executing script" >> ${OPENSHIFT_DATA_DIR}test.log
+  #client_message `date` >> ${OPENSHIFT_DATA_DIR}test.log
+  #client_message "executing script" >> ${OPENSHIFT_DATA_DIR}test.log
   if [ -e ${OPENSHIFT_REPO_DIR}${OPENSHIFT_APP_NAME}_exec ]
   then
     ${OPENSHIFT_REPO_DIR}${OPENSHIFT_APP_NAME}_exec 2>&1 >> ${OPENSHIFT_LOG_DIR}${OPENSHIFT_APP_NAME}.log &
