@@ -30,7 +30,7 @@ function build() {
     #./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
     #./b2 install
     cd $OPENSHIFT_REPO_DIR
-    cd OPENSHIFT_APP_NAME
+    cd $OPENSHIFT_APP_NAME
 
     dub --compiler=ldc
     popd
