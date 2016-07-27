@@ -22,23 +22,15 @@ function ishttpup() {
 
 function build() {
     client_message "Building"
-   # curl 'http://ufpr.dl.sourceforge.net/project/boost/boost/1.57.0/boost_1_57_0.tar.gz' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: en-US,en;q=0.8,en-GB;q=0.6,pt-BR;q=0.4,pt;q=0.2,fr;q=0.2,es-419;q=0.2,es;q=0.2' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36' --compressed -o boost_1_57_0.tar.gz
-    #tar zxvf boost_1_57_0.tar.gz  -C $OPENSHIFT_DATA_DIR
-    #export BOOST_ROOT=$OPENSHIFT_DATA_DIR/boost_1_57_0
-    #pushd $BOOST_ROOT
-    #mkdir -p $OPENSHIFT_DATA_DIR/usr/local/
-    #./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
-    #./b2 install
-    #export ldc=$OPENSHIFT_D_DIR/usr/bin
-    #pushd $ldc
-    export dub=$OPENSHIFT_D_DIR/usr/bin
-    pushd $dub
-    client_message "agregando ldc y dub al path"
+
     cd $OPENSHIFT_REPO_DIR
+    client_message "cambiando directorio"
+    echo "$PATH"
+    echo "`ls`"
 
     dub --compiler=ldc
 
-    popd
+    #popd
     client_message "Building $cartride_type cart"
     #pushd ${OPENSHIFT_REPO_DIR}
 }
