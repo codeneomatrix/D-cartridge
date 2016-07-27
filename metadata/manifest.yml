@@ -1,8 +1,8 @@
-Name: D
-Cartridge-Short-Name: D
+Name: d
+Cartridge-Short-Name: d
 Cartridge-Version: '0.0.3'
-Display-Name: "D Cartridge"
-Description: "D cartridge"
+Display-Name: "d Cartridge"
+Description: "d cartridge"
 Source-Url: https://github.com/codeneomatrix/D-cartridge.git
 Cartridge-Vendor: codeneomatrix
 Version: '0.0.1'
@@ -41,7 +41,7 @@ Cart-Data:
     Type: environment
     Description: "Unique ID which identified the gear. This value changes between gears."  
 Provides:
-  - D
+  - d
   - ldc-v1.0.0
 Endpoints:
   - Private-IP-Name: IP
