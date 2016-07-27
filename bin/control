@@ -31,7 +31,7 @@ function build() {
     #./b2 install
     cd $OPENSHIFT_REPO_DIR
 
-    $OPENSHIFT_D_DIR/usr/bin/dub --compiler=ldc2
+    dub --compiler=ldc2
     popd
     client_message "Building $cartride_type cart"
     #pushd ${OPENSHIFT_REPO_DIR}
