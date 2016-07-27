@@ -11,7 +11,9 @@ rm -rf ldc2-1.0.0-linux-x86_64
 rm -f ldc2-1.0.0-linux-x86_64.tar.gz
 echo "eliminado los archivos temporales"
 
-cd $OPENSHIFT_D_DIR
+echo "$PATH"
+echo "`ls`"
+#cd $OPENSHIFT_D_DIR
 #mkdir -p .julia/v0.4.6
 
 
