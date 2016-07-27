@@ -15,9 +15,9 @@ cd $OPENSHIFT_D_DIR/usr
 echo "cd $OPENSHIFT_D_DIR/usr"
 tar -xzf dub-1.0.0-linux-x86_64.tar.gz
 echo "descomprimiendo dub"
-mv dub .
-echo "copiando a ."
-rm -rf dub
+#mv dub .
+#echo "copiando a ."
+#rm -rf dub
 rm -f dub-1.0.0-linux-x86_64.tar.gz
 echo "eliminado los archivos temporales"
 
