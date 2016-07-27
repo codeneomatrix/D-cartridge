@@ -39,7 +39,7 @@ function build() {
     echo "$PATH"
     echo "`ls`"
 
-    dub -v --compiler=ldc2
+    ./dub -v --compiler=ldc2
 
     #popd
     client_message "Building $cartride_type cart"
