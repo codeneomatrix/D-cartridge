@@ -1,13 +1,19 @@
 #!/bin/bash -e
 
 
-cd $OPENSHIFT_JULIA_DIR/usr
-tar -xzf julia-0.4-latest-linux-x86_64.tar.gz
-mv julia-2e358ce975/* .
-rm -rf julia-2e358ce975
-rm -f julia-0.4-latest-linux-x86_64.tar.gz
-cd $OPENSHIFT_JULIA_DIR
-mkdir -p .julia/v0.4.6
-touch .julia_history
+cd $OPENSHIFT_D_DIR/usr
+Xz –d ldc2-1.0.0-linux-x86_64.tar.xz
+mv ldc2-1.0.0-linux-x86_64/* .
+rm -rf ldc2-1.0.0-linux-x86_64
+rm -f ldc2-1.0.0-linux-x86_64.tar.xz
+
+tar -xzf dub-1.0.0-linux-x86_64.tar.gz
+mv dub/* .
+rm -rf dub
+rm -f dub-1.0.0-linux-x86_64.tar.gz
+
+cd $OPENSHIFT_D_DIR
+#mkdir -p .julia/v0.4.6
+
 
 exit 0

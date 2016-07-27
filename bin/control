@@ -2,7 +2,7 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-cartridge_type="cpp"
+cartridge_type="D"
 
 
 function isrunning() {
@@ -17,32 +17,33 @@ function isrunning() {
 
 # Check if the server http port is up
 function ishttpup() {
-  echo "Is HTTP up?"
+  client_message "Is HTTP up?"
 }
 
 function build() {
-    echo "Building boost"
-    curl 'http://ufpr.dl.sourceforge.net/project/boost/boost/1.57.0/boost_1_57_0.tar.gz' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: en-US,en;q=0.8,en-GB;q=0.6,pt-BR;q=0.4,pt;q=0.2,fr;q=0.2,es-419;q=0.2,es;q=0.2' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36' --compressed -o boost_1_57_0.tar.gz
-    tar zxvf boost_1_57_0.tar.gz  -C $OPENSHIFT_DATA_DIR
-    export BOOST_ROOT=$OPENSHIFT_DATA_DIR/boost_1_57_0
-    pushd $BOOST_ROOT
-    mkdir -p $OPENSHIFT_DATA_DIR/usr/local/
-    ./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
-    ./b2 install
+    client_message "Building"
+   # curl 'http://ufpr.dl.sourceforge.net/project/boost/boost/1.57.0/boost_1_57_0.tar.gz' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: en-US,en;q=0.8,en-GB;q=0.6,pt-BR;q=0.4,pt;q=0.2,fr;q=0.2,es-419;q=0.2,es;q=0.2' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36' --compressed -o boost_1_57_0.tar.gz
+    #tar zxvf boost_1_57_0.tar.gz  -C $OPENSHIFT_DATA_DIR
+    #export BOOST_ROOT=$OPENSHIFT_DATA_DIR/boost_1_57_0
+    #pushd $BOOST_ROOT
+    #mkdir -p $OPENSHIFT_DATA_DIR/usr/local/
+    #./bootstrap.sh --prefix=$OPENSHIFT_DATA_DIR/usr/local/
+    #./b2 install
+    dub --compiler=ldc
     popd
-    echo "Building $cartride_type cart"
+    client_message "Building $cartride_type cart"
     #pushd ${OPENSHIFT_REPO_DIR}
 }
 
 function deploy() {
-  echo "Deploying $cartridge_type cart"
+  client_message "Deploying $cartridge_type cart"
 
 }
 
 function start() {
-  echo "Starting $cartridge_type cart"
-  echo `date` >> ${OPENSHIFT_DATA_DIR}test.log
-  echo "executing script" >> ${OPENSHIFT_DATA_DIR}test.log
+  client_message "Starting $cartridge_type cart"
+  client_message `date` >> ${OPENSHIFT_DATA_DIR}test.log
+  client_message "executing script" >> ${OPENSHIFT_DATA_DIR}test.log
   if [ -e ${OPENSHIFT_REPO_DIR}${OPENSHIFT_APP_NAME}_exec ]
   then
     ${OPENSHIFT_REPO_DIR}${OPENSHIFT_APP_NAME}_exec 2>&1 >> ${OPENSHIFT_LOG_DIR}${OPENSHIFT_APP_NAME}.log &
@@ -55,18 +56,18 @@ function start() {
 
 
 function stop() {
-  echo "Stopping $cartridge_type cart"
+  client_message "Stopping $cartridge_type cart"
   if isrunning
   then
     pid=$(ps -ef | grep "[_]exec" | awk '{print $2}')
-    echo "Sending SIGTERM to papertrailapp:$pid ..." 1>&2
+    client_message "Sending SIGTERM to papertrailapp:$pid ..." 1>&2
     kill $pid
   fi
  
 }
 
 function restart() {
-    echo "Restarting $cartridge_type cart"
+    client_message "Restarting $cartridge_type cart"
 
     stop
 
@@ -83,7 +84,7 @@ function status() {
 }
 
 function reload() {
-    echo "Reloading $cartridge_type cart"
+    client_message "Reloading $cartridge_type cart"
     restart
 }
 
