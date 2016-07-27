@@ -3,14 +3,20 @@
 
 cd $OPENSHIFT_D_DIR/usr
 tar -xzf ldc2-1.0.0-linux-x86_64.tar.gz
+client_message "descomprimiendo ldc"
 mv ldc2-1.0.0-linux-x86_64/* .
+client_message "copiando a /*."
 rm -rf ldc2-1.0.0-linux-x86_64
 rm -f ldc2-1.0.0-linux-x86_64.tar.gz
+client_message "eliminado los archivos temporales"
 
 tar -xzf dub-1.0.0-linux-x86_64.tar.gz
+client_message "descomprimiendo ldc"
 mv dub/* .
+client_message "copiando a /*."
 rm -rf dub
 rm -f dub-1.0.0-linux-x86_64.tar.gz
+client_message "eliminado los archivos temporales"
 
 cd $OPENSHIFT_D_DIR
 #mkdir -p .julia/v0.4.6
