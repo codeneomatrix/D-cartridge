@@ -2,10 +2,10 @@
 
 
 cd $OPENSHIFT_D_DIR/usr
-Xz –d ldc2-1.0.0-linux-x86_64.tar.xz
+tar -xzf ldc2-1.0.0-linux-x86_64.tar.gz
 mv ldc2-1.0.0-linux-x86_64/* .
 rm -rf ldc2-1.0.0-linux-x86_64
-rm -f ldc2-1.0.0-linux-x86_64.tar.xz
+rm -f ldc2-1.0.0-linux-x86_64.tar.gz
 
 tar -xzf dub-1.0.0-linux-x86_64.tar.gz
 mv dub/* .
