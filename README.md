@@ -52,7 +52,7 @@ Using fixed selection libevent 2.0.1+2.0.16
 Using fixed selection libasync 0.7.9
 Acquiring package zip file
 /var/lib/openshift/579958117628e138830001a5/.dub: Permission denied
-<pre><code>
+</pre></code>
 
 
 You must edit <strong>/template/source/app.d</strong> for adding your own content!
