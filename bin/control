@@ -7,7 +7,7 @@ cartridge_type="D"
 
 function isrunning() {
 # Check for running app
-  pid=$(ps -ef | grep "[_]exec" | awk '{print $2}')
+  pid=$(ps -ef | grep "./mywebapp" | awk '{print $2}')
   if [ "$pid" != "" ]; then
     return 0
   else
@@ -22,28 +22,15 @@ function ishttpup() {
 
 function build() {
     client_message "Building"
-    cd $OPENSHIFT_D_DIR/usr
-    echo "cd $OPENSHIFT_D_DIR/usr"
-    tar -xzf ldc2-1.0.0-linux-x86_64.tar.gz
-    echo "descomprimiendo ldc"
-    mv ldc2-1.0.0-linux-x86_64/* .
-    echo "copiando a ."
-    rm -rf ldc2-1.0.0-linux-x86_64
-    rm -f ldc2-1.0.0-linux-x86_64.tar.gz
-    echo "eliminado los archivos temporales"
-    ln -s $OPENSHIFT_D_DIR/usr/bin/dub $OPENSHIFT_REPO_DIR
-    ln -s $OPENSHIFT_D_DIR/usr/bin/ldc2 $OPENSHIFT_REPO_DIR
+    
 
     cd $OPENSHIFT_REPO_DIR
     client_message "cambiando directorio"
-    echo "$PATH"
-    echo "`ls`"
 
-    ./dub -v --compiler=ldc2
+    ./dub --compiler=ldc2
+    ./mywebapp
 
-    #popd
     client_message "Building $cartride_type cart"
-    #pushd ${OPENSHIFT_REPO_DIR}
 }
 
 function deploy() {
@@ -70,7 +57,7 @@ function stop() {
   client_message "Stopping $cartridge_type cart"
   if isrunning
   then
-    pid=$(ps -ef | grep "[_]exec" | awk '{print $2}')
+    pid=$(ps -ef | grep "./mywebapp" | awk '{print $2}')
     client_message "Sending SIGTERM to papertrailapp:$pid ..." 1>&2
     kill $pid
   fi

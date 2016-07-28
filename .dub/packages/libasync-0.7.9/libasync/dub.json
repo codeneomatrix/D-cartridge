@@ -1,0 +1,50 @@
+{
+	"authors": [
+		"Etienne Cimon",
+		"Sönke Ludwig"
+	],
+	"configurations": [
+		{
+			"name": "regular",
+			"targetType": "staticLibrary",
+			"sourceFiles-windows-x86": [
+				"ws2_32_ex.lib"
+			]
+		},
+		{
+			"name": "32mscoff",
+			"targetType": "staticLibrary",
+			"subConfigurations": {
+				"memutils": "32mscoff"
+			},
+			"dflags-windows-x86": [
+				"-m32mscoff"
+			]
+		}
+	],
+	"libs-linux": [
+		"rt"
+	],
+	"workingDirectory": "build",
+	"importPaths": [
+		"source/"
+	],
+	"name": "libasync",
+	"version": "0.7.9",
+	"targetType": "staticLibrary",
+	"license": "MIT",
+	"targetName": "async",
+	"description": "A cross-platform event loop library of asynchroneous objects.",
+	"libs-windows": [
+		"ws2_32",
+		"advapi32",
+		"user32"
+	],
+	"targetPath": "build",
+	"dependencies": {
+		"memutils": "~>0.4.5"
+	},
+	"sourcePaths": [
+		"source/"
+	]
+}

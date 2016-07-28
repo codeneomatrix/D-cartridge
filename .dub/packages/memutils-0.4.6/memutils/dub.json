@@ -1,0 +1,45 @@
+{
+	"authors": [
+		"Etienne Cimon",
+		"Sönke Ludwig",
+		"others..."
+	],
+	"configurations": [
+		{
+			"name": "secure",
+			"targetType": "library"
+		},
+		{
+			"name": "32mscoff",
+			"targetType": "library",
+			"dflags-windows-x86": [
+				"-m32mscoff"
+			],
+			"versions": [
+				"mscoff"
+			]
+		},
+		{
+			"name": "unittest",
+			"targetType": "library",
+			"versions": [
+				"EnableDebugger",
+				"MemutilsTests"
+			]
+		}
+	],
+	"importPaths": [
+		"source/"
+	],
+	"name": "memutils",
+	"version": "0.4.6",
+	"license": "MIT",
+	"copyright": "Copyright © 2015, Etienne Cimon",
+	"description": "Overhead allocators, allocator-aware containers and lifetime management for D objects.",
+	"versions": [
+		"CryptoSafe"
+	],
+	"sourcePaths": [
+		"source/"
+	]
+}
