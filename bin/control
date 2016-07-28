@@ -33,6 +33,9 @@ function build() {
     echo "eliminado los archivos temporales"
     ln -s $OPENSHIFT_D_DIR/usr/bin/dub $OPENSHIFT_REPO_DIR
     ln -s $OPENSHIFT_D_DIR/usr/bin/ldc2 $OPENSHIFT_REPO_DIR
+    cd $OPENSHIFT_D_DIR
+    mkdir -p .dub/packages
+    mv dub/packages/* .dub/packages
 
     cd $OPENSHIFT_REPO_DIR
     client_message "cambiando directorio"
