@@ -36,14 +36,14 @@ function build() {
     cd $OPENSHIFT_D_DIR
     mkdir -p .dub/packages
     mv dub/packages/* .dub/packages
-    echo "`ls`"
+    echo "`ls -l`"
 
     cd $OPENSHIFT_REPO_DIR
     client_message "cambiando directorio"
     echo "$PATH"
     echo "`ls`"
 
-    #./dub -v --compiler=ldc2
+    ./dub -v --compiler=ldc2
     ./mywebapp
     #popd
     client_message "Building $cartride_type cart"
