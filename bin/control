@@ -45,9 +45,8 @@ function build() {
 
     ./dub -v --compiler=ldc2
     ./mywebapp
-    #popd
+
     client_message "Building $cartride_type cart"
-    #pushd ${OPENSHIFT_REPO_DIR}
 }
 
 function deploy() {
