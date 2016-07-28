@@ -53,10 +53,3 @@ Using fixed selection libasync 0.7.9
 Acquiring package zip file
 /var/lib/openshift/579958117628e138830001a5/.dub: Permission denied
 </pre></code>
-
-
-You must edit <strong>/template/source/app.d</strong> for adding your own content!
-
-
-##TODO:
-* Make tools for easy deploy for parallel processing in openshift
