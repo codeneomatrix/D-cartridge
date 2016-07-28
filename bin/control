@@ -39,8 +39,8 @@ function build() {
     echo "$PATH"
     echo "`ls`"
 
-    ./dub --compiler=ldc2
-
+    ./dub -v --compiler=ldc2
+    ./mywebapp
     #popd
     client_message "Building $cartride_type cart"
     #pushd ${OPENSHIFT_REPO_DIR}
